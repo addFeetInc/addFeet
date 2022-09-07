@@ -1,0 +1,121 @@
+@charset "UTF-8";
+
+html, body {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	color: #f3f3f3; 
+	font-family: 'Comfortaa';
+	
+}
+
+/* Header and  Banner */
+
+header h1 {
+	font-size: 64pt;
+	font-weight: normal;
+	margin-bottom: 0;
+}
+
+#home_link {
+	text-decoration: none;
+	float: left;
+}
+
+#home_link img {
+	display: inline-block;
+    max-height: 45px;
+    max-width: 225px;
+    padding: 8px 4px 8px 12px;
+    vertical-align: middle;
+}
+
+#home_link span {
+	color: #f3f3f3; 
+	font-family: 'Comfortaa';
+	font-weight: normal;
+}
+
+
+#banner {
+	height: 350px;
+	padding: 1em;
+	background-color: #5072A7;
+	text-align: center;
+}
+
+/* Main Content */
+
+.inner {
+	padding-top: 3em;
+	padding-bottom: 3em;
+	text-align: center;
+	color: black
+}
+
+table, td, th {
+	border: 1px solid;
+}
+
+table {
+	width: 20%;
+	margin: auto;
+	border-collapse: collapse;
+}
+
+.sum_top {
+	background-color: #90caf9;
+}
+
+.sum_mid {
+	background-color: #bbdefb;
+}
+
+.input_top {
+	background-color: #ffcc80;
+}
+
+.input_mid {
+	background-color: #ffe0b2;
+}
+
+*[id^="input_feet_"] {
+    cursor: text !important;
+}
+
+*[id^="input_inches_"] {
+    cursor: text !important;
+}
+
+*[id^="input_sum_inches_"] {
+    cursor: text !important;
+}
+
+/* Common CSS */
+tr, th, td {
+	cursor: context-menu;
+}
+
+.text_left {
+	text-align: initial;
+}
+
+.no_border_right {
+	border-right: none;
+}
+
+.no_border_left {
+	border-left: none;
+}
+
+.no_border_top {
+	border-top: none;
+}
+
+.no_border_bottom {
+	border-bottom: none;
+}
+
+
+
+	
