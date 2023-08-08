@@ -77,9 +77,9 @@
 var lastEvent;
 
 function calculateSum() {
-  var feetInputElements = document.querySelectorAll('[id^="input_feet"]');
-  var inchesInputElements = document.querySelectorAll('[id^="input_inches"]');
-  var sumInchesElements = document.querySelectorAll('[id^="sum_inches"]');
+  var feetInputElem = document.querySelectorAll('[id^="input_feet"]');
+  var inchesInputElem = document.querySelectorAll('[id^="input_inches"]');
+  var sumInchesElem = document.querySelectorAll('[id^="sum_inches"]');
 
   var sumTableFeetElem = document.getElementById("sumtbl_feet");
   var sumTableInchesElem = document.getElementById("sumtbl_inches");
@@ -88,43 +88,42 @@ function calculateSum() {
   var sumTableFeet = 0;
   var sumTableInches = 0;
 
-  for (let i = 0; i < sumInchesElements.length; i++) {
-    var feetConv = parseInt((feetInputElements[i].textContent || 0) * 12, 10);
-    var inchConv = parseInt(inchesInputElements[i].textContent || 0, 10);
-
-    sumInchesElements[i].innerHTML = feetConv + inchConv;
+  for (let i = 0; i < sumInchesElem.length; i++) {
+    var feetConv = parseFloat((feetInputElem[i].textContent || 0) * 12).toFixed(
+      3
+    );
+    var inchConv = parseFloat(inchesInputElem[i].textContent || 0).toFixed(3);
+    sumInchesElem[i].innerHTML = (
+      parseFloat(feetConv) + parseFloat(inchConv)
+    ).toFixed(3);
   }
 
-  feetInputElements.forEach(function (elem) {
-    sumTableFeet = parseInt(elem.textContent || 0, 10) + sumTableFeet;
+  feetInputElem.forEach(function (elem) {
+    sumTableFeet = parseFloat(elem.textContent || 0, 10) + sumTableFeet;
   });
 
-  inchesInputElements.forEach(function (elem) {
-    sumTableInches = parseInt(elem.textContent || 0, 10) + sumTableInches;
+  inchesInputElem.forEach(function (elem) {
+    sumTableInches = parseFloat(elem.textContent || 0, 10) + sumTableInches;
   });
 
-  sumTableFeetElem.innerHTML = sumTableFeet;
-  sumTableInchesElem.innerHTML = sumTableInches;
-  sumTableTotalElem.innerHTML = sumTableFeet * 12 + sumTableInches;
+  sumTableFeetElem.innerHTML = sumTableFeet.toFixed(3);
+  sumTableInchesElem.innerHTML = sumTableInches.toFixed(3);
+  sumTableTotalElem.innerHTML = (
+    parseFloat(sumTableFeet) * 12 +
+    parseFloat(sumTableInches)
+  ).toFixed(3);
 }
 
+// OLD regex just incase -->    /^\d*\.?\d*$/
 window.addEventListener("input", function (e) {
-  var testReg = /^\d*\.?\d*$/.test(e.target.value);
+  var testReg = /^-?\d*\.?\d*$/.test(e.target.value);
   e.target.value = testReg ? e.target.value : 0;
 });
 
 function cleanValue(value) {
-  return !!value && /^\d*\.?\d*$/.test(value)
+  return !!value && /^-?\d*\.?\d*$/.test(value)
     ? parseFloat(value).toFixed(3)
     : !value
     ? ""
     : 0;
 }
-
-// input.addEventListener("keypress", function(event) {
-// 	if (event.key === "Enter") {
-// 		event.preventDefault();
-// 		console.log(event);
-
-// 	}
-// });
