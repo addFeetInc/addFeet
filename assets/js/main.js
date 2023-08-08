@@ -93,9 +93,13 @@ function calculateSum() {
       3
     );
     var inchConv = parseFloat(inchesInputElem[i].textContent || 0).toFixed(3);
-    sumInchesElem[i].innerHTML = (
+
+    // sumInchesElem[i].innerHTML = (
+    //   parseFloat(feetConv) + parseFloat(inchConv)
+    // ).toFixed(3);
+    sumInchesElem[i].innerHTML = convToDec(
       parseFloat(feetConv) + parseFloat(inchConv)
-    ).toFixed(3);
+    );
   }
 
   feetInputElem.forEach(function (elem) {
@@ -106,12 +110,11 @@ function calculateSum() {
     sumTableInches = parseFloat(elem.textContent || 0, 10) + sumTableInches;
   });
 
-  sumTableFeetElem.innerHTML = sumTableFeet.toFixed(3);
-  sumTableInchesElem.innerHTML = sumTableInches.toFixed(3);
-  sumTableTotalElem.innerHTML = (
-    parseFloat(sumTableFeet) * 12 +
-    parseFloat(sumTableInches)
-  ).toFixed(3);
+  sumTableFeetElem.innerHTML = convToDec(sumTableFeet);
+  sumTableInchesElem.innerHTML = convToDec(sumTableInches);
+  sumTableTotalElem.innerHTML = convToDec(
+    parseFloat(sumTableFeet) * 12 + parseFloat(sumTableInches)
+  );
 }
 
 // OLD regex just incase -->    /^\d*\.?\d*$/
@@ -120,9 +123,13 @@ window.addEventListener("input", function (e) {
   e.target.value = testReg ? e.target.value : 0;
 });
 
+function convToDec(value) {
+  return Math.round(value * 1000) / 1000;
+}
+
 function cleanValue(value) {
   return !!value && /^-?\d*\.?\d*$/.test(value)
-    ? parseFloat(value).toFixed(3)
+    ? convToDec(parseFloat(value))
     : !value
     ? ""
     : 0;
