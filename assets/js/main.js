@@ -94,9 +94,6 @@ function calculateSum() {
     );
     var inchConv = parseFloat(inchesInputElem[i].textContent || 0).toFixed(3);
 
-    // sumInchesElem[i].innerHTML = (
-    //   parseFloat(feetConv) + parseFloat(inchConv)
-    // ).toFixed(3);
     sumInchesElem[i].innerHTML = convToDec(
       parseFloat(feetConv) + parseFloat(inchConv)
     );
@@ -110,8 +107,11 @@ function calculateSum() {
     sumTableInches = parseFloat(elem.textContent || 0, 10) + sumTableInches;
   });
 
-  sumTableFeetElem.innerHTML = convToDec(sumTableFeet);
-  sumTableInchesElem.innerHTML = convToDec(sumTableInches);
+  convertInchesToFeet = ~~(sumTableInches / 12);
+  remainingInches = sumTableInches % 12;
+
+  sumTableFeetElem.innerHTML = convToDec(sumTableFeet + convertInchesToFeet);
+  sumTableInchesElem.innerHTML = convToDec(remainingInches);
   sumTableTotalElem.innerHTML = convToDec(
     parseFloat(sumTableFeet) * 12 + parseFloat(sumTableInches)
   );
