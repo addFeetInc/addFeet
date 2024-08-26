@@ -87,7 +87,8 @@ function calculateSum() {
 
   var sumTableFeet = 0;
   var sumTableInches = 0;
-
+  var sumTableTotal = 0;
+  
   for (let i = 0; i < sumInchesElem.length; i++) {
     var feetConv = parseFloat((feetInputElem[i].textContent || 0) * 12).toFixed(
       3
@@ -99,22 +100,19 @@ function calculateSum() {
     );
   }
 
-  feetInputElem.forEach(function (elem) {
-    sumTableFeet = parseFloat(elem.textContent || 0, 10) + sumTableFeet;
+  // summing sumInchesElem values to give sumTableTotal //
+  sumInchesElem.forEach(function (elem) {
+    sumTableTotal = parseFloat(elem.textContent || 0, 10) + sumTableTotal;
   });
 
-  inchesInputElem.forEach(function (elem) {
-    sumTableInches = parseFloat(elem.textContent || 0, 10) + sumTableInches;
-  });
+  // converting IN to FT-IN //
+  convertInchesToFeet = ~~(sumTableTotal / 12);
+  remainingInches = sumTableTotal % 12;
 
-  convertInchesToFeet = ~~(sumTableInches / 12);
-  remainingInches = sumTableInches % 12;
-
-  sumTableFeetElem.innerHTML = convToDec(sumTableFeet + convertInchesToFeet);
+  // display final values//
+  sumTableFeetElem.innerHTML = convToDec(convertInchesToFeet);
   sumTableInchesElem.innerHTML = convToDec(remainingInches);
-  sumTableTotalElem.innerHTML = convToDec(
-    parseFloat(sumTableFeet) * 12 + parseFloat(sumTableInches)
-  );
+  sumTableTotalElem.innerHTML = convToDec(sumTableTotal);
 }
 
 // OLD regex just incase -->    /^\d*\.?\d*$/
