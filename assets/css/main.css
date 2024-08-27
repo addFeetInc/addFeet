@@ -14,12 +14,30 @@ body {
 header h1 {
   font-size: 48pt;
   font-weight: normal;
-  margin-bottom: 0;
+  margin: auto 0 auto 0;
+}
+
+#banner {
+  height: 250px;
+  padding: 1em;
+  background-color: #5072a7;
+  text-align: center;
+}
+
+.upper {
+  width: 100%;
+  text-align: left;
+}
+
+#spacer1 {
+  width: 690px;
+  height: 10px;
+  display: none;
 }
 
 #home_link {
-  text-decoration: none;
-  float: left;
+  display:inline;
+  text-align: left;
 }
 
 #home_link img {
@@ -36,15 +54,7 @@ header h1 {
   font-weight: normal;
 }
 
-#banner {
-  height: 250px;
-  padding: 1em;
-  background-color: #5072a7;
-  text-align: center;
-}
-
 /* NEW ADDITION #1 ------ BEGIN */
-
 .lower > h1 {
   display: flex;
 }
@@ -81,8 +91,6 @@ header h1 {
   display:inline;
 }
 /* NEW ADDITION #1 ------ END */
-
-
 
 /* Main Content */
 
@@ -162,27 +170,43 @@ td {
   border-bottom: none;
 }
 
+@media (max-width: 1550px) {
+
+  #spacer1 {
+    width: 690px;
+    height: 10px;
+    display: inline-block;
+  }
+  
+  #home_link {
+    display:inline-block;
+    position: relative;
+    right: 46%;
+    text-align: left;
+  }
+}
+
+
 @media (max-width: 1000px) {
   table {
     width: 35%;
   }
-   #home_link_text {
-    /* visibility: hidden; */
-    display: none;
-  }
-  #home_link {
-    margin-bottom: 0.5rem;
-  }
 }
 
 @media (max-width: 800px) {
+  
+  #spacer1 {
+    display: none;
+  }
+
   #break2 {
     display: block;
   }
 
   #home_link {
     width: 100%;
-    margin-bottom: 1rem;
+    position: static;
+    text-align: center;
   }
 
   table {
@@ -194,7 +218,7 @@ td {
   h1 {
     font-size: 4em !important;
   }
-  
+
   #break4 {
     display: block;
   }
@@ -208,15 +232,15 @@ td {
   .banner-lower-text-feet {
     display:block;
   }
-  
+
   header p {
     font-size: small;
   }
-
+  
   #slogan {
     display: none;
   }
-
+  
   table {
     width: 65%;
   }
@@ -224,4 +248,5 @@ td {
   #banner {
     height: 210px;
   }
+
 }
