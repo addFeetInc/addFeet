@@ -12,7 +12,7 @@ body {
 /* Header and  Banner */
 
 header h1 {
-  font-size: 64pt;
+  font-size: 48pt;
   font-weight: normal;
   margin-bottom: 0;
 }
@@ -37,11 +37,52 @@ header h1 {
 }
 
 #banner {
-  height: 350px;
+  height: 250px;
   padding: 1em;
   background-color: #5072a7;
   text-align: center;
 }
+
+/* NEW ADDITION #1 ------ BEGIN */
+
+.lower > h1 {
+  display: flex;
+}
+
+#break1 {
+  display: none;
+}
+
+#break2 {
+  display: none;
+}
+
+#break3 {
+  display: none;
+}
+
+#break4 {
+  display: none;
+}
+
+#quote * {
+  color: black;
+  display: block;
+  text-align: center;
+  font-size: small;
+  margin-top: 0.3rem;
+}
+
+.banner-lower-text-add {
+  display:inline;
+}
+
+.banner-lower-text-feet {
+  display:inline;
+}
+/* NEW ADDITION #1 ------ END */
+
+
 
 /* Main Content */
 
@@ -66,10 +107,12 @@ table {
 
 .sum_top {
   background-color: #90caf9;
+  background-color: #31c133;
 }
 
 .sum_mid {
   background-color: #bbdefb;
+  background-color: #88e289;
 }
 
 .input_top {
@@ -123,11 +166,23 @@ td {
   table {
     width: 35%;
   }
+   #home_link_text {
+    /* visibility: hidden; */
+    display: none;
+  }
+  #home_link {
+    margin-bottom: 0.5rem;
+  }
 }
 
 @media (max-width: 800px) {
+  #break2 {
+    display: block;
+  }
+
   #home_link {
-    visibility: hidden;
+    width: 100%;
+    margin-bottom: 1rem;
   }
 
   table {
@@ -139,6 +194,10 @@ td {
   h1 {
     font-size: 4em !important;
   }
+  
+  #break4 {
+    display: block;
+  }
 }
 
 @media (max-width: 325px) {
@@ -146,8 +205,16 @@ td {
     font-size: 3em !important;
   }
 
+  .banner-lower-text-feet {
+    display:block;
+  }
+  
   header p {
     font-size: small;
+  }
+
+  #slogan {
+    display: none;
   }
 
   table {
@@ -155,6 +222,6 @@ td {
   }
 
   #banner {
-    height: 250px;
+    height: 210px;
   }
 }
