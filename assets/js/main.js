@@ -1,134 +1,97 @@
-(function ($) {
-  $("tr").on("click", "td", function () {
-    var $this = $(this);
+const rowInput = document.getElementById("row-qty-input");
+const addRowBtn = document.getElementById("add-row-btn");
+const delRowBtn = document.getElementById("del-row-btn");
+const inputs = document.getElementById("inputs-sheet");
+const clearBtn = document.getElementById("clear-btn");
 
-    if (
-      $this.context.parentElement.parentElement.parentElement.id === "input" &&
-      $this.context.id.includes("input")
-    ) {
-      var $input = $("<input>", {
-        value: $this.text(),
-        type: "text",
-        blur: function () {
-          $this.text(cleanValue(this.value));
-          calculateSum();
-        },
-        keyup: function (e) {
-          if (e.which === 13) $input.blur();
-        },
-      })
-        .appendTo($this.empty())
-        .focus();
+const tableMin = 2
+const tableMax = 25
+let tableSize = 0
+
+resizeTable()
+
+function resizeTable(){
+    const newTableSize = rowInput.value
+    if (newTableSize<=tableMax && newTableSize>=tableMin){
+        while(tableSize>newTableSize){
+            deleteRow()
+        }
+        while(tableSize<newTableSize){
+            addRow()
+        }
+    } else{
+        alert(`Please enter a number from ${tableMin} to ${tableMax}`)
+        return
     }
-  });
-
-  $("tr").on("keyup", "td", function (event) {
-    // if(event.shiftKey && event.keyCode == 9) {
-    // // if(event.key === "Tab" && lastEvent?.key === "Shift" ) {
-    // 	console.log('back tab');
-    // 	var test = $(this);
-    // 	$test = $(test.context.previousElementSibling);
-    // 	console.log($test);
-
-    // 	event.preventDefault();
-
-    // 	if($test.context.parentElement.parentElement.parentElement.id === 'input' && $test.context.id.includes('input')) {
-    // 		var $input = $('<input>', {
-    // 			value: $test.text(),
-    // 			type: 'text',
-    // 			blur: function() {
-    // 				$test.text(this.value);
-    // 				calculateSum();
-    // 			},
-    // 			keyup: function(e) {
-    // 				if (e.which === 13) $input.blur();
-    // 			}}).appendTo( $test.empty() ).focus();
-    // 	}
-    // }
-    // else
-    if (event.key === "Tab") {
-      event.preventDefault();
-      var $this = $(this);
-
-      if (
-        $this.context.parentElement.parentElement.parentElement.id ===
-          "input" &&
-        $this.context.id.includes("input")
-      ) {
-        var $input = $("<input>", {
-          value: $this.text(),
-          type: "text",
-          blur: function () {
-            $this.text(cleanValue(this.value));
-            calculateSum();
-          },
-          keyup: function (e) {
-            if (e.which === 13) $input.blur();
-          },
-        })
-          .appendTo($this.empty())
-          .focus();
-      }
-    }
-    lastEvent = event;
-  });
-})(jQuery);
-
-var lastEvent;
-
-function calculateSum() {
-  var feetInputElem = document.querySelectorAll('[id^="input_feet"]');
-  var inchesInputElem = document.querySelectorAll('[id^="input_inches"]');
-  var sumInchesElem = document.querySelectorAll('[id^="sum_inches"]');
-
-  var sumTableFeetElem = document.getElementById("sumtbl_feet");
-  var sumTableInchesElem = document.getElementById("sumtbl_inches");
-  var sumTableTotalElem = document.getElementById("sumtbl_total");
-
-  var sumTableFeet = 0;
-  var sumTableInches = 0;
-  var sumTableTotal = 0;
-  
-  for (let i = 0; i < sumInchesElem.length; i++) {
-    var feetConv = parseFloat((feetInputElem[i].textContent || 0) * 12).toFixed(
-      3
-    );
-    var inchConv = parseFloat(inchesInputElem[i].textContent || 0).toFixed(3);
-
-    sumInchesElem[i].innerHTML = convToDec(
-      parseFloat(feetConv) + parseFloat(inchConv)
-    );
-  }
-
-  // summing sumInchesElem values to give sumTableTotal //
-  sumInchesElem.forEach(function (elem) {
-    sumTableTotal = parseFloat(elem.textContent || 0, 10) + sumTableTotal;
-  });
-
-  // converting IN to FT-IN //
-  convertInchesToFeet = ~~(sumTableTotal / 12);
-  remainingInches = sumTableTotal % 12;
-
-  // display final values//
-  sumTableFeetElem.innerHTML = convToDec(convertInchesToFeet);
-  sumTableInchesElem.innerHTML = convToDec(remainingInches);
-  sumTableTotalElem.innerHTML = convToDec(sumTableTotal);
 }
 
-// OLD regex just incase -->    /^\d*\.?\d*$/
-window.addEventListener("input", function (e) {
-  var testReg = /^-?\d*\.?\d*$/.test(e.target.value);
-  e.target.value = testReg ? e.target.value : 0;
-});
+function deleteRow(){
+    if(tableSize>tableMin){
+        inputs.removeChild(inputs.lastElementChild)
+        tableSize--
+        rowInput.value=tableSize
+        delRowBtn.disabled = tableSize>tableMin ? false : true
+    }
+    addRowBtn.disabled=false
+    calculateTable()
+}
+
+function addRow(){
+    if(tableSize<tableMax){
+        const newRow = document.createElement("div")
+        newRow.className = "input-row"
+        newRow.id = `row-${tableSize+1}`
+        newRow.innerHTML = `<input onchange="calculateTable()" type="number" id="r${tableSize+1}-c1" class="row-input-cell" /><input onchange="calculateTable()" type="number" id="r${tableSize+1}-c2" class="row-input-cell" /><p id="r${tableSize+1}-c3" class="row-total-cell"></p>`
+        inputs.appendChild(newRow)
+        tableSize++
+        rowInput.value=tableSize
+        addRowBtn.disabled = tableSize<tableMax ? false : true
+    }
+    delRowBtn.disabled=false
+    calculateTable()
+}
+
+function calculateTable(){
+    let sumOunce = 0;
+    for (let i=1; i<tableSize+1; i++){
+        calculateRow(i)
+    }
+    for (let i=1; i<tableSize+1; i++){
+        sumOunce+=parseFloat(document.getElementById(`r${i}-c3`).innerHTML || 0)
+    }
+    const splitOunce = sumOunce % 16
+    const splitPound = ~~(sumOunce/16)
+
+    document.getElementById("r0-c3").innerHTML=convToDec(sumOunce)
+    document.getElementById("r0-c2").innerHTML=convToDec(splitOunce)
+    document.getElementById("r0-c1").innerHTML=convToDec(splitPound)
+}
+
+function calculateRow(i){
+    const ric1 = document.getElementById(`r${i}-c1`);
+    const ric2 = document.getElementById(`r${i}-c2`);
+    const ric3 = document.getElementById(`r${i}-c3`);
+    
+    const poundConv = parseFloat((ric1.value || 0)*16).toFixed(3)
+    const ounceConv = parseFloat(ric2.value || 0).toFixed(3)
+
+    ric3.innerHTML = convToDec(parseFloat(poundConv) + parseFloat(ounceConv)) ? convToDec(parseFloat(poundConv) + parseFloat(ounceConv)) : "";
+    return
+}
 
 function convToDec(value) {
-  return Math.round(value * 1000) / 1000;
+    return Math.round(value * 1000) / 1000;
 }
 
-function cleanValue(value) {
-  return !!value && /^-?\d*\.?\d*$/.test(value)
-    ? convToDec(parseFloat(value))
-    : !value
-    ? ""
-    : 0;
+function clearTable(){
+    for (let i=1; i<tableSize+1; i++){
+        document.getElementById(`r${i}-c1`).value = ""
+        document.getElementById(`r${i}-c2`).value = ""
+    }
+    calculateTable()
 }
+
+rowInput.addEventListener("change",resizeTable)
+addRowBtn.addEventListener("click",addRow)
+delRowBtn.addEventListener("click",deleteRow)
+clearBtn.addEventListener("click", clearTable)
