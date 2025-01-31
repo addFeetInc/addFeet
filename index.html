@@ -2,183 +2,43 @@
 
 <html>
   <head>
-    <title>Add FEET</title>
+    
+    <title>addFeet</title>
+    
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Calculator to tally up American dimensions. Created with Builders and Designers in mind." />
     <link rel="stylesheet" href="assets/css/main.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Comfortaa"
-      rel="stylesheet"
-    />
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3987165456866436"
-      crossorigin="anonymous"
-    ></script>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet"/>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3987165456866436" crossorigin="anonymous"></script>
   </head>
+  <header>
+    <h1><img src="assets/css/images/addFeetLogo.png" id="logo"/>addFeet</h1>
+  </header>
   <body>
-    <!-- Banner -->
-    <section id="banner">
-      <div class="upper">
-        <div id="spacer1"></div>
-        <a id="home_link" href="#">
-          <img src="assets/css/images/addFeetLogo.png" />
-        </a>
-      </div>
-      <br>
-      <div class="lower">
-        <header>
-          <h1><div class="banner-lower-text-add">Add</div><div class="banner-lower-text-feet">FEET</div></h1>
-          <p>by AT</p>
-          <p id="slogan">THE WORLD'S PREMIER WEB <br id="break2">CALCULATOR FOR FEET & INCHES</p>
-        </header>
-      </div>
-    </section>
-
-    <!-- Main -->
-    <div id="main">
-      <div class="inner">
-        <table id="sum">
-          <tr class="sum_top">
-            <th class="no_border_right"></th>
-            <th class="no_border_left text_left">SUM <br id="break4">(ft-in)</th>
-            <th>SUM<br>(inches only)</th>
-          </tr>
-          <tr class="sum_mid">
-            <td class="no_border_right">FT</td>
-            <td class="no_border_left">IN</td>
-            <td>IN</td>
-          </tr>
-          <tr>
-            <td id="sumtbl_feet">0</td>
-            <td id="sumtbl_inches">0</td>
-            <td id="sumtbl_total">0</td>
-          </tr>
-        </table>
-
-        <br />
-
-        <table id="input">
-          <tr class="input_top">
-            <th class="no_border_right"></th>
-            <th class="no_border_left no_border_right">INPUT</th>
-            <th class="no_border_left"></th>
-            <th>conversion <br>to inches</th>
-          </tr>
-          <tr class="input_mid">
-            <td class="no_border_right">#</td>
-            <td class="no_border_left no_border_right">FT</td>
-            <td class="no_border_left">IN</td>
-            <td>IN</td>
-          </tr>
-
-          <tr>
-            <td><b>1</b></td>
-            <td id="input_feet_1" tabindex="0"></td>
-            <td id="input_inches_1" tabindex="0"></td>
-            <td id="sum_inches_1">0</td>
-          </tr>
-
-          <tr>
-            <td><b>2</b></td>
-            <td id="input_feet_2" tabindex="0"></td>
-            <td id="input_inches_2" tabindex="0"></td>
-            <td id="sum_inches_2">0</td>
-          </tr>
-          <tr>
-            <td><b>3</b></td>
-            <td id="input_feet_3" tabindex="0"></td>
-            <td id="input_inches_3" tabindex="0"></td>
-            <td id="sum_inches_3">0</td>
-          </tr>
-          <tr>
-            <td><b>4</b></td>
-            <td id="input_feet_4" tabindex="0"></td>
-            <td id="input_inches_4" tabindex="0"></td>
-            <td id="sum_inches_4">0</td>
-          </tr>
-          <tr>
-            <td><b>5</b></td>
-            <td id="input_feet_5" tabindex="0"></td>
-            <td id="input_inches_5" tabindex="0"></td>
-            <td id="sum_inches_5">0</td>
-          </tr>
-          <tr>
-            <td><b>6</b></td>
-            <td id="input_feet_6" tabindex="0"></td>
-            <td id="input_inches_6" tabindex="0"></td>
-            <td id="sum_inches_6">0</td>
-          </tr>
-          <tr>
-            <td><b>7</b></td>
-            <td id="input_feet_7" tabindex="0"></td>
-            <td id="input_inches_7" tabindex="0"></td>
-            <td id="sum_inches_7">0</td>
-          </tr>
-          <tr>
-            <td><b>8</b></td>
-            <td id="input_feet_8" tabindex="0"></td>
-            <td id="input_inches_8" tabindex="0"></td>
-            <td id="sum_inches_8">0</td>
-          </tr>
-          <tr>
-            <td><b>9</b></td>
-            <td id="input_feet_9" tabindex="0"></td>
-            <td id="input_inches_9" tabindex="0"></td>
-            <td id="sum_inches_9">0</td>
-          </tr>
-          <tr>
-            <td><b>10</b></td>
-            <td id="input_feet_10" tabindex="0"></td>
-            <td id="input_inches_10" tabindex="0"></td>
-            <td id="sum_inches_10">0</td>
-          </tr>
-          <tr>
-            <td><b>11</b></td>
-            <td id="input_feet_11" tabindex="0"></td>
-            <td id="input_inches_11" tabindex="0"></td>
-            <td id="sum_inches_11">0</td>
-          </tr>
-          <tr>
-            <td><b>12</b></td>
-            <td id="input_feet_12" tabindex="0"></td>
-            <td id="input_inches_12" tabindex="0"></td>
-            <td id="sum_inches_12">0</td>
-          </tr>
-          <tr>
-            <td><b>13</b></td>
-            <td id="input_feet_13" tabindex="0"></td>
-            <td id="input_inches_13" tabindex="0"></td>
-            <td id="sum_inches_13">0</td>
-          </tr>
-          <tr>
-            <td><b>14</b></td>
-            <td id="input_feet_14" tabindex="0"></td>
-            <td id="input_inches_14" tabindex="0"></td>
-            <td id="sum_inches_14">0</td>
-          </tr>
-          <tr>
-            <td><b>15</b></td>
-            <td id="input_feet_15" tabindex="0"></td>
-            <td id="input_inches_15" tabindex="0"></td>
-            <td id="sum_inches_15">0</td>
-          </tr>
-        </table>
-
-        <br />
-        <!-- <button onclick="addRow()">Add Row</button> -->
-      </div>
+    <div id="settings">
+        <input id="row-qty-input" type="number" value="10"/>
+        <div id="buttons-div">
+          <button id="add-row-btn">(+) add row</button>
+          <button id="del-row-btn">(-) delete row</button>
+        </div>
+        <br/><br/>
     </div>
-    <div id="quote">
-      <q>I feet, therefore I add</q>
-      <p>-Daycart</p>
+    <div class="label-row">
+      <p id="hd1-c12" class="label-cell">SUM in FEET & INCHES</p><p id="hd1-c3" class="label-cell">SUM in INCHES</p>
     </div>
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/jquery.poptrox.min.js"></script>
-    <script src="assets/js/skel.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <div class="units-row">
+      <p id="hd2-c1" class="label-cell">Feet (ft)</p><p id="hd2-c2" class="label-cell">Inches (in)</p><p id="hd2-c3" class="label-cell">Inches (in)</p>
+    </div>
+    <div id="sum">
+      <div class="output-row">
+        <p id="r0-c1" class="output-cell"></p><p id="r0-c2" class="output-cell"></p><p id="r0-c3" class="output-cell"></p>
+      </div>
+      <br/>
+    </div>
+    <div id="inputs-sheet"></div>
+    <br/>
+    <button id="clear-btn">(x) clear table</button>
   </body>
+  <script src="assets/js/main.js"></script>
 </html>
