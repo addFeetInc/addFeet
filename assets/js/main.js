@@ -52,19 +52,19 @@ function addRow(){
 }
 
 function calculateTable(){
-    let sumOunce = 0;
+    let sumInch = 0;
     for (let i=1; i<tableSize+1; i++){
         calculateRow(i)
     }
     for (let i=1; i<tableSize+1; i++){
-        sumOunce+=parseFloat(document.getElementById(`r${i}-c3`).innerHTML || 0)
+        sumInch+=parseFloat(document.getElementById(`r${i}-c3`).innerHTML || 0)
     }
-    const splitOunce = sumOunce % 16
-    const splitPound = ~~(sumOunce/16)
+    const splitInch = sumInch % 12
+    const splitFoot = ~~(sumInch/12)
 
-    document.getElementById("r0-c3").innerHTML=convToDec(sumOunce)
-    document.getElementById("r0-c2").innerHTML=convToDec(splitOunce)
-    document.getElementById("r0-c1").innerHTML=convToDec(splitPound)
+    document.getElementById("r0-c3").innerHTML=convToDec(sumInch)
+    document.getElementById("r0-c2").innerHTML=convToDec(splitInch)
+    document.getElementById("r0-c1").innerHTML=convToDec(splitFoot)
 }
 
 function calculateRow(i){
@@ -72,10 +72,10 @@ function calculateRow(i){
     const ric2 = document.getElementById(`r${i}-c2`);
     const ric3 = document.getElementById(`r${i}-c3`);
     
-    const poundConv = parseFloat((ric1.value || 0)*16).toFixed(3)
-    const ounceConv = parseFloat(ric2.value || 0).toFixed(3)
+    const footConv = parseFloat((ric1.value || 0)*12).toFixed(3)
+    const inchConv = parseFloat(ric2.value || 0).toFixed(3)
 
-    ric3.innerHTML = convToDec(parseFloat(poundConv) + parseFloat(ounceConv)) ? convToDec(parseFloat(poundConv) + parseFloat(ounceConv)) : "";
+    ric3.innerHTML = convToDec(parseFloat(footConv) + parseFloat(inchConv)) ? convToDec(parseFloat(footConv) + parseFloat(inchConv)) : "";
     return
 }
 
