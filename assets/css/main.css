@@ -13,6 +13,39 @@
     --text-font: Courier, Helvetica, sans-serif;
 }
 
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin-bottom:0px;
+}
+main{
+    flex:1;
+}
+footer{
+    padding:0px;
+    margin-top:10px;
+    height:fit-content;
+}
+.modal-dialog {
+    max-height: calc(var(--vh, 1vh)*90); /* limits full modal height */
+    display: flex;
+    flex-direction: column;
+}
+.modal-content {
+flex: 1 1 auto;
+overflow: hidden;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.modal-body {
+overflow-y: auto;
+flex: 1 1 auto;
+text-align: center;
+
+}
+
 h1{
     font:  bold 36px var(--text-font);
 }
@@ -154,4 +187,3 @@ button{
     border: .5px dashed orange;
 
 } */
-
