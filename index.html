@@ -11,35 +11,135 @@
     <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet"/>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3987165456866436" crossorigin="anonymous"></script>
-  </head>
-  <header>
-    <h1><img src="assets/css/images/addFeetLogo.png" id="logo"/>addFeet</h1>
-  </header>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
   <body>
-    <div id="settings">
-        <input id="row-qty-input" type="number" value="10"/>
-        <div id="buttons-div">
-          <button id="add-row-btn">(+) add row</button>
-          <button id="del-row-btn">(-) delete row</button>
+    <section id="modals">
+      <div class="modal fade" id="about-modal" tab-index="-1" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header"><h3>ABOUT</h3></div>
+                <div class="modal-body text-break">
+                  <p>addFeet is web application by Digital Builder Tools (DBT).<br>
+                  For other products by DBT, check out our <a href="https://sites.google.com/view/digitalbuildertools/home" target="_blank"><i>landing page</i></a>.</p>
+                  <br>
+                  <h4>Mission</h4>
+                  <p>Save time and reduce human error by making adding and subtracting <strong>American units</strong> as simple and quick as possible.</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger" type="button" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
-        <br/><br/>
-    </div>
-    <div class="label-row">
-      <p id="hd1-c12" class="label-cell">SUM in FEET & INCHES</p><p id="hd1-c3" class="label-cell">SUM in INCHES</p>
-    </div>
-    <div class="units-row">
-      <p id="hd2-c1" class="label-cell">Feet (ft)</p><p id="hd2-c2" class="label-cell">Inches (in)</p><p id="hd2-c3" class="label-cell">Inches (in)</p>
-    </div>
-    <div id="sum">
-      <div class="output-row">
-        <p id="r0-c1" class="output-cell"></p><p id="r0-c2" class="output-cell"></p><p id="r0-c3" class="output-cell"></p>
       </div>
+      <div class="modal fade" id="contact-modal" tab-index="-1" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header"><h3>CONTACT</h3></div>
+                <div class="modal-body text-break">
+                  <p>For any inquiries, please send an email to: <br><a href="mailto:contact@addfeet.com">contact@addfeet.com</a></p>
+                  <p>To report bugs or make recommendations site improvement or new features, send an email to: <br><a href="mailto:support@addfeet.com">support@addfeet.com</a></p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger" type="button" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="modal fade" id="privacy-modal" tab-index="-1" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header"><h3>PRIVACY POLICY</h3></div>
+                <div class="modal-body text-break" style="text-align: left;">
+                <!-- Privacy Policy -->
+                  <p><strong>Effective Date:</strong> 04/17/2025</p>
+                  
+                  <p>This Privacy Policy outlines how we use and protect your information when you visit our website. By using our website, you consent to the practices described in this policy.</p>
+
+                  <h4>1. Data Collection and Use</h4>
+                  <p>We do not collect any personal data directly from visitors to our website. However, we do use third-party services, such as <strong>Google AdSense</strong>, to display ads on our site. These third-party services may collect data through the use of <strong>cookies</strong> or similar technologies to track user behavior across websites for the purpose of serving personalized ads.</p>
+
+                  <h4>2. Cookies and Tracking Technologies</h4>
+                  <p>Our website uses <strong>cookies</strong> to enhance user experience and serve personalized ads. A cookie is a small text file placed on your device to store information about your visits and interactions with our website and other websites across the internet.</p>
+                  <p><strong>Google AdSense</strong> and other third-party advertising networks use cookies to serve ads based on your prior visits to this website and other sites. These cookies allow advertisers to deliver more relevant and personalized advertisements to users.</p>
+                  <p><strong>DART Cookie:</strong> Google uses the <strong>DART cookie</strong> to serve ads based on your visit to this and other sites on the internet. You can opt out of the use of the DART cookie by visiting <a href="https://www.google.com/settings/ads" target="_blank">Google's Ads Settings</a>.</p>
+                  <p>For more information about how Google uses data when you visit sites or apps that use its services, please refer to <a href="https://policies.google.com/privacy" target="_blank">Google’s Privacy & Terms</a>.</p>
+
+                  <h4>3. Third-Party Advertising</h4>
+                  <p>This website uses <strong>third-party advertising services</strong> (such as Google AdSense) to display ads. These third-party vendors may use cookies or web beacons to collect information about your activities on this website and other websites to provide targeted advertisements based on your interests.</p>
+                  <p>We encourage you to visit the following links for more information on how these third parties use your information and how you can opt out:</p>
+                  <ul>
+                    <li><a href="https://policies.google.com/privacy" target="_blank">Google's Privacy & Terms</a></li>
+                    <li><a href="https://www.google.com/settings/ads" target="_blank">Google Ad Settings</a></li>
+                    <li><a href="http://optout.networkadvertising.org/" target="_blank">Network Advertising Initiative Opt-Out</a></li>
+                  </ul>
+
+                  <h4>4. Links to Third-Party Websites</h4>
+                  <p>Our website may contain links to third-party websites that are not controlled or operated by us. We are not responsible for the privacy practices or content of these third-party websites. We recommend reviewing the privacy policies of any third-party websites you visit.</p>
+
+                  <h4>5. Your Consent and Choices</h4>
+                  <p>By using our website, you consent to the use of cookies and the collection of non-personally identifiable information by third-party services, such as Google AdSense. You can manage your cookie preferences and opt out of personalized advertising by visiting the following:</p>
+                  <ul>
+                    <li><a href="https://www.google.com/settings/ads" target="_blank">Google Ads Settings</a></li>
+                    <li><a href="http://optout.networkadvertising.org/" target="_blank">Network Advertising Initiative Opt-Out</a></li>
+                  </ul>
+
+                  <h4>6. Compliance with Laws</h4>
+                  <p>We are committed to complying with applicable privacy regulations, including the <strong>General Data Protection Regulation (GDPR)</strong> and the <strong>California Consumer Privacy Act (CCPA)</strong>. If you are a resident of the European Union or California, you may have specific rights under these laws, including the right to access, correct, or delete your personal information.</p>
+                  <p>If you are in the European Union and wish to exercise your data protection rights, please contact us through the contact page on our website.</p>
+
+                  <h4>7. Changes to This Privacy Policy</h4>
+                  <p>We reserve the right to update this Privacy Policy at any time. Any changes will be reflected on this page, and the updated policy will take effect immediately after it is posted.</p>
+                  <p>Please check this Privacy Policy periodically for updates.</p>
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger" type="button" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+      </div>
+    </section>
+    <header>
+      <h1><img src="assets/css/images/addFeetLogo.png" id="logo"/>addFeet</h1>
+    </header>
+    <main>
+      <div id="settings">
+          <input id="row-qty-input" type="number" value="10"/>
+          <div id="buttons-div">
+            <button id="add-row-btn" class="btn btn-warning btn-sm">(+) add row</button>
+            <button id="del-row-btn" class="btn btn-warning btn-sm">(-) delete row</button>
+          </div>
+          <br/><br/>
+      </div>
+      <div class="label-row">
+        <p id="hd1-c12" class="label-cell">SUM in FEET & INCHES</p><p id="hd1-c3" class="label-cell">SUM in INCHES</p>
+      </div>
+      <div class="units-row">
+        <p id="hd2-c1" class="label-cell">Feet (ft)</p><p id="hd2-c2" class="label-cell">Inches (in)</p><p id="hd2-c3" class="label-cell">Inches (in)</p>
+      </div>
+      <div id="sum">
+        <div class="output-row">
+          <p id="r0-c1" class="output-cell"></p><p id="r0-c2" class="output-cell"></p><p id="r0-c3" class="output-cell"></p>
+        </div>
+        <br/>
+      </div>
+      <div id="inputs-sheet"></div>
       <br/>
-    </div>
-    <div id="inputs-sheet"></div>
-    <br/>
-    <button id="clear-btn">(x) clear table</button>
+      <button id="clear-btn" class="btn btn-danger btn-sm">(x) clear table</button>
+    </main>
+    <footer style="height: 20px; font-size: 12px; background-color: white; position: relative; z-index: 1001; text-align: center;">
+      2025 Digital Builder Tools. All rights reserved. | 
+      <a href="#" data-bs-toggle="modal" data-bs-target="#privacy-modal" style="font-size: 12px; color: grey; text-decoration: underline;">Privacy Policy</a> | 
+      <a href="#" data-bs-toggle="modal" data-bs-target="#about-modal" style="font-size: 12px; color: grey; text-decoration: underline;">About</a> | 
+      <a href="#" data-bs-toggle="modal" data-bs-target="#contact-modal" style="font-size: 12px; color: grey; text-decoration: underline;">Contact</a>
+
+    </footer>
   </body>
+
   <script src="assets/js/main.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+
 </html>
