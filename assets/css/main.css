@@ -190,3 +190,9 @@ button{
 
 } */
 
+@media (max-width:500px){
+    .label-row p, .units-row p{
+        font-size:calc(var(--cell-font-size) - 4px); 
+        font-weight: 100;
+    }
+}
