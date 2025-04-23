@@ -18,6 +18,8 @@ body{
     flex-direction: column;
     min-height: 100vh;
     margin-bottom:0px;
+    padding-top: 10px;
+    padding-left: 15px;
 }
 main{
     flex:1;
@@ -187,3 +189,4 @@ button{
     border: .5px dashed orange;
 
 } */
+
